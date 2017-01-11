@@ -1,3 +1,14 @@
-<movie-list-component></movie-list-component>
-<order-component></order-component>
-
+ <div class="home-container">
+     <div class="box-container">
+        <div class="title">Lista</div>
+        <div class="decorator">
+            <movie-list-component (passMovieToCart)="addToCart($event)"></movie-list-component>
+        </div>
+     </div>   
+     <div class="box-container">
+        <div class="title">Koszyk</div>
+        <div class="decorator">
+            <my-cart-component [cart]="cart"></my-cart-component>
+        </div>
+     </div>
+</div>

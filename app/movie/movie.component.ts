@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input,Output, EventEmitter } from '@angular/core';
 import {Movie} from "../models/movie.model";
 
 @Component({
@@ -6,7 +6,12 @@ import {Movie} from "../models/movie.model";
   templateUrl: 'app/movie/movie.component.html'
 })
 export class MovieComponent {
-  constructor(){
+  @Input() movie: Movie;
+  
+  @Output() addMovieToCart : EventEmitter<Movie> =
+    new EventEmitter<Movie>();
 
-  }
+  addMovie () {
+    this.addMovieToCart.emit(this.movie);
+  }  
 }

@@ -1,7 +1,7 @@
-<p> Nazwa: {{name}}</p>
-<p *ngFor="let id of categoryIds">
-  Categorie:
-  {{id}}
-</p>
-<p>Dostepny: {{isAvailable}}</p>
-<p>Pozostało sztuk: {{copiesLeft}}</p>
+<i class="fa fa-film" aria-hidden="true"></i>
+<span> {{movie.name}} </span>
+Categorie: <span *ngFor="let id of movie.categoryIds"> {{id}} </span>
+<span *ngIf="movie.isAvailable" class="green">dostepny</span>
+<span *ngIf="!movie.isAvailable" class="red">niedostępny</span>
+<div class="movie-btn" (click)="addMovie()">+</div>
+
