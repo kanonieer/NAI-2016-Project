@@ -1,1 +1,10 @@
 lista filmów.
+<div *ngFor="let movie of movies">
+  <p> Nazwa: {{movie.name}}</p>
+  <p *ngFor="let id of categoryIds">
+    Categorie:
+    {{movie.id}}
+  </p>
+  <p>Dostepny: {{movie.isAvailable}}</p>
+  <p>Pozostało sztuk: {{movie.copiesLeft}}</p>
+</div>
