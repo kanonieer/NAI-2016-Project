@@ -1,7 +1,8 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { AppComponent }  from './app.component';
 import { MovieComponent } from './movie/movie.component';
@@ -13,15 +14,19 @@ import { MyCartComponent } from './my-cart/my-cart.component';
 
 import { MovieService } from './services/movie.service';
 
+const routes: Routes = [
+    { path: '', redirectTo: 'list', pathMatch: 'full' },
+    { path: 'list', component: HomeComponent },
+    { path: 'list/:category', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'order', component: OrderComponent },
+];
+
 @NgModule({
   declarations: [ AppComponent, MovieComponent, MovieListComponent,
     OrderComponent, AboutComponent, HomeComponent, MyCartComponent ],
-  imports:      [ BrowserModule, HttpModule,
-  RouterModule.forRoot([
-    { path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent }
-  ])
- ],
+  imports: [ BrowserModule, HttpModule, FormsModule,
+    ReactiveFormsModule, RouterModule.forRoot( routes )],
   bootstrap: [ AppComponent ],
   providers: [ MovieService ]
 })

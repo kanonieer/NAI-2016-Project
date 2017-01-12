@@ -16,9 +16,14 @@ export class MovieService {
             .map(response => response.json());
     }
 
-    getMovies () : Observable<Movie[]>{
-        return this.http.get(this.url+'/movies')
-            .map(response => response.json());
+    getMovies (category: string) : Observable<Movie[]>{
+        if(category === undefined){
+            return this.http.get(this.url+'/movies')
+                .map(response => response.json());            
+        }else{
+            return this.http.get(this.url+'/movies/'+category)
+                .map(response => response.json());              
+        }
     }
 
 }

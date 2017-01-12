@@ -5,5 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'app/order/order.component.html'
 })
 export class OrderComponent {
-
+  onSubmit(form){
+    console.log(form);
+  }
 }

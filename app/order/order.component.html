@@ -1,1 +1,20 @@
-zamówienie
+<div class="box-container">
+    <div class="title">Zamówienie</div>
+    <div class="decorator">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+            <input ngModel name="firstName" #firstName="ngModel" required>
+            <div
+            class="alert alert-danger"
+            *ngIf="firstName.touched && !firstName.valid">
+            first name is required.
+            </div>
+            <input ngModel name="lastName"  #lastName="ngModel" required>
+            <div
+            class="alert alert-danger"
+            *ngIf="lastName.touched && !lastName.valid">
+            Last name is required.
+            </div>  
+            <button class="btn" type="submit" [disabled]="!f.valid">Submit</button>
+        </form>        
+    </div>
+</div>

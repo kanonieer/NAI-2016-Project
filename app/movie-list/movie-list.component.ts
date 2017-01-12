@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MovieService } from './../services/movie.service';
-import {Movie} from "../models/movie.model";
+import { Movie} from "../models/movie.model";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'movie-list-component',
@@ -12,13 +13,19 @@ export class MovieListComponent {
 
 
 
-  constructor(private movieService: MovieService){
+  constructor(private movieService: MovieService, 
+    private activatedRoute: ActivatedRoute){
 
   }
   ngOnInit (){
     this.movieService.getMovies().subscribe(
-      data =>  this.movies = data
+      data => this.movies = data
     );
+    this.activatedRoute.params.subscribe((param) => {
+      this.movieService.getMovies(param.category).subscribe(
+          data => this.movies = data
+      );
+    });
   }
   @Output() passMovieToCart : EventEmitter<Movie>
    = new EventEmitter<Movie>();

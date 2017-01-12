@@ -3,5 +3,6 @@ export interface Movie{
         name: string,
         categoryIds: Array<string>,
         isAvailable: boolean,
-        copiesLeft: number
+        copiesLeft: number,
+        fee:number
 }

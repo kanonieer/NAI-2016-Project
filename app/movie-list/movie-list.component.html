@@ -1,3 +1,1 @@
-<div *ngFor="let el of movies">
-  <movie-component [movie]="el" (addMovieToCart)="passMovie($event)"></movie-component>
-</div>
+<movie-component *ngFor="let el of movies" [movie]="el" (addMovieToCart)="passMovie($event)"></movie-component>
