@@ -1,7 +1,7 @@
 <div class="box-container">
     <div class="title">Zamówienie</div>
     <div class="decorator">
-        <form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+        <form #f="ngForm" >
             <input ngModel name="firstName" #firstName="ngModel" required>
             <div
             class="alert alert-danger"
@@ -15,6 +15,7 @@
             Last name is required.
             </div>  
             <button class="btn" type="submit" [disabled]="!f.valid">Submit</button>
+            <span class="btn" (click)="onClickCart()">Koszyk</span>
         </form>        
     </div>
 </div>

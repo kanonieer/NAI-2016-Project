@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { MyCartComponent } from './my-cart/my-cart.component';
 
 import { MovieService } from './services/movie.service';
+import { CartService } from './services/cart.service';
 
 const routes: Routes = [
     { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -28,6 +29,6 @@ const routes: Routes = [
   imports: [ BrowserModule, HttpModule, FormsModule,
     ReactiveFormsModule, RouterModule.forRoot( routes )],
   bootstrap: [ AppComponent ],
-  providers: [ MovieService ]
+  providers: [ MovieService, CartService]
 })
 export class AppModule { }

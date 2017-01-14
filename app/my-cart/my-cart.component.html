@@ -7,5 +7,6 @@
 </ul>
 <div class="summary">
     <span>Podsumowanie: {{ totalCost | number : '1.2-2' }} </span> 
-    <div class="btn">Zamów</div>
+    <span class="btn" routerLink="/order" routerLinkActive="totalCost>0">Zamów</span>
+
 </div>
