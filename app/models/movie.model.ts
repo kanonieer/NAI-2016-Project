@@ -1,5 +1,5 @@
 export interface Movie{
-        id: string,
+        id: number,
         name: string,
         categoryIds: Array<string>,
         isAvailable: boolean,

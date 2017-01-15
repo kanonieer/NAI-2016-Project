@@ -4,7 +4,23 @@
   padding: 0px;
   box-sizing: border-box;
 }
+.alert-danger{
+  border: 1px solid red;
+  background-color: pink;
+  color:darkred;
+  padding:0px 10px;
+  width:200px;
+}
 
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+form > input {
+  width:200px;
+}
 .toolbar{
   width:100%;
   background: 	white;

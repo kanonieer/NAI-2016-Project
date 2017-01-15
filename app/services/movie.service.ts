@@ -25,5 +25,4 @@ export class MovieService {
                 .map(response => response.json());              
         }
     }
-
 }

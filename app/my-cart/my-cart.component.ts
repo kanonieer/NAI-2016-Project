@@ -23,7 +23,7 @@ export class MyCartComponent {
     }
 
     removeFromCart (movie: Movie) {
-      this.countTotalCost();
       this.cartService.removeFromCart(movie);
+      this.countTotalCost();
   }  
 }
