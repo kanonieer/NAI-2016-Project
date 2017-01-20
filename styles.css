@@ -107,6 +107,27 @@ movie-component{
 .red{
   color:red;
 }
+.btn-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+.disabled{
+  border: 1px solid grey;
+  background-color: lightgray;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  margin-bottom:5px;
+  box-sizing: border-box;
+  height:20px;
+  margin:10px 0px;
+}
 @media (max-width: 900px) {
   .home-container{
     justify-content: space-around;

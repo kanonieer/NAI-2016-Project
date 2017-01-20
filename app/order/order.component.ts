@@ -3,6 +3,9 @@ import { CartService } from './../services/cart.service';
 import { BorrowService } from './../services/borrow.service';
 import { Movie } from './../models/movie.model';
 import { Borrow } from './../models/borrow.model';
+import { Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'order-component',
@@ -11,7 +14,7 @@ import { Borrow } from './../models/borrow.model';
 export class OrderComponent {
 
   constructor(private cartService: CartService,
-   private borrowService: BorrowService ){
+   private borrowService: BorrowService, private router: Router){
 
   }
   totalCost(){
@@ -20,7 +23,6 @@ export class OrderComponent {
     return totalCost;      
   }
   submitForm(data: any){
-    console.log(data)
     var arr: Array<number> = [];
     this.cartService.cart.forEach(movie => arr.push(movie.id));
 
@@ -32,9 +34,17 @@ export class OrderComponent {
       },
       movieIds: arr
     }
-    console.log(borrow);
-    console.log(JSON.stringify(borrow));
     this.borrowService.borrowMovies(borrow).subscribe(
-      data => console.log(data));
+      data => {
+        this.cartService.cleanCart();
+        this.router.navigate(['/list']);
+        alert("Wypożyczono!");
+      },
+      err => {
+        alert(err._body);
+      });  
+  }
+  goBack(){
+    this.router.navigate(['/list']);
   }
 }

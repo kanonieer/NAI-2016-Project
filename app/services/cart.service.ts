@@ -12,5 +12,8 @@ export class CartService {
     removeFromCart(movie: Movie){
       this.cart.splice(this.cart.indexOf(movie),1);
     }
+    cleanCart(){
+      this.cart = [];
+    }
 
 }

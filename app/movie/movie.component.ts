@@ -17,6 +17,5 @@ export class MovieComponent {
 
   addMovie () {
     this.cartService.addToCart(this.movie);
-    //this.addMovieToCart.emit(this.movie);
   }  
 }

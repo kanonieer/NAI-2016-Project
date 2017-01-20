@@ -4,5 +4,5 @@ Kategorie: <span *ngFor="let id of movie.categoryIds"> {{id}} </span>
 <span> Koszt: {{movie.fee}} </span>
 <span *ngIf="movie.isAvailable" class="green">dostepny</span>
 <span *ngIf="!movie.isAvailable" class="red">niedostępny</span>
-<div class="btn" (click)="addMovie()">+</div>
+<div class="btn" (click)="movie.isAvailable && addMovie()" [ngClass]="{disabled : !movie.isAvailable, btn: movie.isAvailable}">+</div>
 

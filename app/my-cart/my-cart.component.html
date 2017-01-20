@@ -7,6 +7,10 @@
 </ul>
 <div class="summary">
     <span>Podsumowanie: {{ totalCost | number : '1.2-2' }} </span> 
-    <span class="btn" routerLink="/order" routerLinkActive="totalCost>0">Zamów</span>
+    <button
+        class="btn" 
+        (click)="anyInCart() && goToOrder()"
+        [ngClass]="{disabled : !anyInCart(), btn: anyInCart()}"
+        >Zamów</button>
 
 </div>

@@ -18,7 +18,7 @@ export class MovieListComponent {
 
   }
   ngOnInit (){
-    this.movieService.getMovies().subscribe(
+    this.movieService.getMovies(undefined).subscribe(
       data => this.movies = data
     );
     this.activatedRoute.params.subscribe((param) => {
